@@ -1,7 +1,3 @@
-Aqui está a tradução do texto para o inglês:
-
----
-
 ## Program Documentation
 
 ## Description
