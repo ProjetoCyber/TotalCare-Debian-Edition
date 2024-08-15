@@ -1,128 +1,133 @@
-## Documentação do programa
+Aqui está a tradução do texto para o inglês:
 
-## Descrição
+---
 
-Este script é um utilitário de manutenção de sistema escrito em Bash. Ele oferece uma série de funções para a administração e otimização de sistemas baseados em Debian/Ubuntu. O script é distribuído sob a Licença Pública Geral GNU (GPL) versão 2.0, o que permite a redistribuição e modificação sob os termos dessa licença.
+## Program Documentation
 
-## Licença
+## Description
 
-Este programa é software livre; você pode redistribuí-lo e/ou modificá-lo sob os termos da Licença Pública Geral GNU como publicada pela Free Software Foundation; na versão 2 da Licença.
+This script is a system maintenance utility written in Bash. It offers a range of functions for the administration and optimization of Debian/Ubuntu-based systems. The script is distributed under the GNU General Public License (GPL) version 2.0, which allows redistribution and modification under the terms of that license.
 
-Este programa é distribuído na esperança de que seja útil, mas SEM NENHUMA GARANTIA; sem mesmo a garantia implícita de COMERCIALIZAÇÃO ou ADEQUAÇÃO A UM PROPÓSITO ESPECÍFICO. Consulte a Licença Pública Geral GNU para mais detalhes.
+## License
 
-Você deve ter recebido uma cópia da Licença Pública Geral GNU junto com este programa; se não, escreva para a Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License.
 
-## Pré-requisitos
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
-- Sistema operacional Debian ou baseado em Ubuntu.
-- Acesso à conta de superusuário (sudo) para executar comandos administrativos.
-- Ferramentas de linha de comando utilizadas: `apt`, `dpkg`, `fsck`, `sysctl`, `find`, `badblocks`, `rsync`.
+You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
-## Funcionalidades
+## Prerequisites
 
-1. **Atualizar o Sistema**
-   - Atualiza a lista de pacotes e instala as atualizações disponíveis.
+- Debian or Ubuntu-based operating system.
+- Superuser (sudo) access to run administrative commands.
+- Command-line tools used: `apt`, `dpkg`, `fsck`, `sysctl`, `find`, `badblocks`, `rsync`.
 
-2. **Limpar Caches e Arquivos Temporários**
-   - Remove arquivos temporários e limpa o cache de pacotes.
+## Features
 
-3. **Verificar Pacotes Quebrados**
-   - Configura pacotes pendentes e corrige pacotes quebrados.
+1. **Update System**
+   - Updates the package list and installs available updates.
 
-4. **Limpar Arquivos de Log Antigos**
-   - Remove arquivos de log antigos no diretório `/var/log`.
+2. **Clear Caches and Temporary Files**
+   - Removes temporary files and clears the package cache.
 
-5. **Verificar e Reparar Erros no Sistema de Arquivos**
-   - Verifica e corrige erros no sistema de arquivos da raiz (`/`).
+3. **Check for Broken Packages**
+   - Configures pending packages and fixes broken packages.
 
-6. **Otimizar o Uso da Memória RAM**
-   - Libera memória RAM pelo sistema de cache.
+4. **Clear Old Log Files**
+   - Removes old log files in the `/var/log` directory.
 
-7. **Verificar Badblocks em um Disco**
-   - Verifica a presença de setores defeituosos em um dispositivo de armazenamento.
+5. **Check and Repair Filesystem Errors**
+   - Checks and repairs errors in the root (`/`) filesystem.
 
-8. **Recuperar Arquivos**
-   - Sincroniza arquivos do diretório `home` para um diretório de destino especificado.
+6. **Optimize RAM Usage**
+   - Frees up RAM by clearing the system cache.
 
-9. **Apagar Pastas Vazias**
-   - Remove diretórios vazios do diretório `home`.
+7. **Check for Bad Blocks on a Disk**
+   - Checks for defective sectors on a storage device.
 
-10. **Procurar e Apagar Pastas Vazias**
-    - Remove diretórios vazios do diretório `home`.
+8. **Recover Files**
+   - Synchronizes files from the `home` directory to a specified destination directory.
 
-11. **Procurar Arquivos Duplicados**
-    - Função não implementada.
+9. **Delete Empty Folders**
+   - Removes empty directories from the `home` directory.
 
-12. **Sair**
-    - Sai do programa.
+10. **Search and Delete Empty Folders**
+    - Removes empty directories from the `home` directory.
 
-## Estrutura do Script
+11. **Search for Duplicate Files**
+    - Function not implemented.
 
-O script está estruturado em várias funções que realizam diferentes tarefas de manutenção e um loop principal que exibe um menu para o usuário e executa as opções selecionadas.
+12. **Exit**
+    - Exits the program.
 
-### Funções
+## Script Structure
 
-1. **atualizar_sistema()**
-   - Atualiza a lista de pacotes e faz upgrade dos pacotes instalados.
+The script is structured into several functions that perform different maintenance tasks and a main loop that displays a menu for the user and executes the selected options.
 
-2. **limpar_cache()**
-   - Executa `apt autoclean` e `apt autoremove` para limpar caches e arquivos não necessários.
+### Functions
 
-3. **verificar_pacotes()**
-   - Usa `dpkg` e `apt` para corrigir pacotes quebrados.
+1. **update_system()**
+   - Updates the package list and upgrades installed packages.
 
-4. **limpar_logs()**
-   - Remove arquivos de log antigos usando `find`.
+2. **clear_cache()**
+   - Executes `apt autoclean` and `apt autoremove` to clear caches and unnecessary files.
 
-5. **verificar_sistema_arquivos()**
-   - Executa `fsck` para verificar e corrigir erros no sistema de arquivos.
+3. **check_packages()**
+   - Uses `dpkg` and `apt` to fix broken packages.
 
-6. **otimizar_memoria()**
-   - Limpa caches de memória usando `sysctl`.
+4. **clear_logs()**
+   - Removes old log files using `find`.
 
-7. **verificar_badblocks()**
-   - Solicita ao usuário o caminho do dispositivo e verifica badblocks.
+5. **check_filesystem()**
+   - Runs `fsck` to check and fix filesystem errors.
 
-8. **recuperar_arquivos()**
-   - Usa `rsync` para recuperar arquivos do diretório `home` para um destino especificado.
+6. **optimize_memory()**
+   - Clears memory caches using `sysctl`.
 
-9. **apagar_pastas_vazias()**
-   - Remove diretórios vazios do diretório `home`.
+7. **check_badblocks()**
+   - Prompts the user for the device path and checks for bad blocks.
 
-10. **procurar_arquivos_duplicados()**
-    - Função não implementada.
+8. **recover_files()**
+   - Uses `rsync` to recover files from the `home` directory to a specified destination.
 
-11. **procurar_reparar_rede()**
-    - Função não implementada.
+9. **delete_empty_folders()**
+   - Removes empty directories from the `home` directory.
 
-### Menu de Opções
+10. **search_duplicate_files()**
+    - Function not implemented.
 
-O menu principal é exibido para o usuário selecionar uma das opções de manutenção. Cada opção está associada a uma função específica que é executada quando a opção é selecionada.
+11. **search_repair_network()**
+    - Function not implemented.
 
-### Loop Principal
+### Options Menu
 
-O loop principal do script exibe o menu e lê a entrada do usuário para executar a função correspondente. O loop continua até que o usuário selecione a opção para sair (`12`).
+The main menu is displayed for the user to select one of the maintenance options. Each option is associated with a specific function that is executed when the option is selected.
 
-## Exemplos de Uso
+### Main Loop
 
-Para atualizar o sistema:
+The script's main loop displays the menu and reads the user's input to execute the corresponding function. The loop continues until the user selects the option to exit (`12`).
 
-```bash
-./manutencao.sh
-Selecione a opção 1.
-```
+## Usage Examples
 
-Para verificar badblocks em um disco:
+To update the system:
 
 ```bash
-./manutencao.sh
-Selecione a opção 8 e insira o caminho do dispositivo.
+./maintenance.sh
+Select option 1.
 ```
 
-## Notas
+To check for bad blocks on a disk:
 
-- Certifique-se de executar o script com permissões adequadas para evitar erros de acesso.
-- A função de procurar arquivos duplicados e reparar rede não está implementada e pode ser adicionada em versões futuras.
+```bash
+./maintenance.sh
+Select option 8 and enter the device path.
 ```
 
-Você pode ajustar conforme necessário para atender a necessidades específicas ou adicionar mais detalhes.
+## Notes
+
+- Be sure to run the script with appropriate permissions to avoid access errors.
+- The function to search for duplicate files and repair the network is not implemented and may be added in future versions.
+
+---
+
+Feel free to adjust the text as needed to suit specific requirements or to add more details.
